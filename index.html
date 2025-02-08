@@ -1,27 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Valentine</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Valentine's!!!</title>
+</head>
+
+<body>
+  <audio id="bg-music" autoplay loop>
+    <source src="audio/romantic.mp3" type="audio/mp3">
+  </audio>
+
+  <div class="wrapper">
+    <!-- Left Side: Pixelated Text Art -->
+    <div class="image-container">
+      <img src="img/IMG_3610.jpg" alt="Romantic Image" class="left-image">
+    </div>
+
+    <!-- Right Side: Valentine's Message -->
     <main class="container">
+      <button id="play-music" class="play-button">🎵 Play Music</button>
       <img class="cat-img" src="img/cat-0.jpg" alt="Picture of a cat" />
-      <p class="title">Will you be my Valentine?</p>
+      <p class="title">Zoey, will you be my Valentine's?</p>
       <div class="buttons">
         <button type="button" class="btn btn--yes">Yes</button>
         <button type="button" class="btn btn--no">No</button>
       </div>
     </main>
+  </div>
 
-    <script type="module" src="script.js"></script>
-  </body>
+  <script type="module" src="script.js"></script>
+  <script>
+    // Load text art from file
+    fetch("blue_lyrics_text_art.txt")
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById("text-art").textContent = text;
+      })
+      .catch(error => console.error("Error loading text art:", error));
+  </script>
+
+</body>
+
 </html>

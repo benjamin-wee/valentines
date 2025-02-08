@@ -1,4 +1,5 @@
 "use strict";
+import confetti from "https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/+esm";
 
 const titleElement = document.querySelector(".title");
 const buttonsContainer = document.querySelector(".buttons");
@@ -10,6 +11,18 @@ const MAX_IMAGES = 5;
 
 let play = true;
 let noCount = 0;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("bg-music");
+  const playButton = document.getElementById("play-music");
+
+  playButton.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      playButton.textContent = "🎶 Playing :3";
+    }
+  });
+});
 
 yesButton.addEventListener("click", handleYesClick);
 
@@ -27,9 +40,17 @@ noButton.addEventListener("click", function () {
 });
 
 function handleYesClick() {
-  titleElement.innerHTML = "Yayyy!! :3";
+  titleElement.innerHTML = "yayyy!! 🫶🏻 <br> <br> stella seaside lounge on the 14th for dinner?";
   buttonsContainer.classList.add("hidden");
   changeImage("yes");
+
+  confetti({
+    particleCount: 200,
+    spread: 100,
+    origin: { x: 0.68, y: 0.5 },
+    shapes: ["circle"],
+    colors: ["#A0522D", "#D2B48C", "#F5DEB3"],
+  });
 }
 
 function resizeYesButton() {
@@ -42,12 +63,12 @@ function resizeYesButton() {
 
 function generateMessage(noCount) {
   const messages = [
-    "No",
-    "Are you sure?",
-    "Pookie please",
-    "Don't do this to me :(",
-    "You're breaking my heart",
-    "I'm gonna cry...",
+    "no",
+    "are you sure?",
+    "pookie please 😭",
+    "don't do this to me :(",
+    "you're breaking my heart",
+    "i'm gonna cry...",
   ];
 
   const messageIndex = Math.min(noCount, messages.length - 1);
