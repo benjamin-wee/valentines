@@ -40,7 +40,7 @@ noButton.addEventListener("click", function () {
 });
 
 function handleYesClick() {
-  titleElement.innerHTML = "yayyy!! 🫶🏻 <br> <br> stella seaside lounge on the 14th for dinner?";
+  titleElement.innerHTML = "yayyy!! 🫶🏻";
   buttonsContainer.classList.add("hidden");
   changeImage("yes");
 
